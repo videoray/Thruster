@@ -1,0 +1,84 @@
+CSR: 
+0x0	 float rpm_target;           // rpm          (RW) NOT USED YET
+0x4	 float pwr_target;           // -1 to 1      (RW)
+0x8	 float rpm;                  // rpm          (R)
+0xc	 float bus_v;                // volts        (R)
+0x10	 float bus_i;                // amps         (R)
+0x14	 uint32_t fault;             // fault flags  (R)
+0x18	 float temp;                 // deg C        (R)
+0x1c	 float pwr_actual;           // -1 to 1      (R)
+0x20	 float rpm_P;                // 0 to 1       (R) NOT USED YET
+0x24	 float rpm_I;                // 0 to 1       (R) NOT USED YET
+0x28	 float rpm_D;                // 0 to 1       (R) NOT USED YET
+ 
+0x2c	 RESERVED
+ 
+0x4c	 uint16_t motor_ID;               // ordinal  (RW)
+ 
+0x4e	 RESERVED
+ 
+0x50	 uint8_t system_flags;
+ 
+0x51	 RESERVED
+ 
+0x54	 uint32_t fault_interlock;  // password (RW)
+ 
+0x58	 RESERVED
+ 
+0x60	 uint8_t motor_control_flags;      // Bitfield     (RW)
+0x61	 uint8_t poles;              // count        (RW)
+0x62	 uint8_t pwm_deadband;       // ticks        (RW)
+ 
+0x63	 RESERVED
+ 
+0x64	 float commutation_threshold;         // 0 to 1       (RW)
+0x68	 uint32_t commutation_loss_timeout;   // ms  (RW)
+0x6c	 float startup_dutycycle;             // 0 to 1       (RW)
+0x70	 uint16_t startup_initial_rpm;                // rpm          (RW)
+0x72	 uint16_t startup_final_rpm;                  // rpm          (RW)
+0x74	 float startup_duration;      // mS           (RW)
+0x78	 float deadband_neg;         // -1 to 0      (RW)
+0x7c	 float deadband_pos;         //  0 to 1      (RW)
+0x80	 float dutycycle_limit_neg;            // -1 to 0      (RW)
+0x84	 float dutycycle_limit_pos;            //  0 to 1      (RW)
+0x88	 float acceleration_rate;              // delta/mS     (RW)
+0x8c	 float deceleration_rate;            // delta/mS     (RW)
+0x90	 float rpm_kP;               // -1 to 1      (RW) NOT USED YET
+0x94	 float rpm_kI;               // -1 to 1      (RW) NOT USED YET
+0x98	 float rpm_kD;               // -1 to 1      (RW) NOT USED YET
+ 
+0x9c	 RESERVED
+ 
+0xa0	 uint32_t fault_control;              // flag     (RW)
+0xa4	 uint8_t undervoltage_trigger;        // volts    (RW)
+0xa5	 uint8_t overvoltage_trigger;         // volts    (RW)
+0xa6	 uint8_t overcurrent_trigger;         // amps     (RW)
+0xa7	 uint8_t temp_trigger;                // deg C    (RW)
+0xa8	 uint8_t stall_count_max;             // count    (RW)
+ 
+0xa9	 RESERVED
+ 
+0xac	 uint32_t undervoltage_err_cnt;       // count    (R)
+0xb0	 uint32_t overvoltage_err_cnt;        // count    (R)
+0xb4	 uint32_t overcurrent_err_cnt;        // count    (R)
+0xb8	 uint32_t temp_err_cnt;               // count    (R)
+0xbc	 uint32_t stall_err_cnt;              // count     (R)
+ 
+0xc0	 RESERVED
+ 
+0xd8	 uint32_t comms_sync1_err_cnt;          // count (R)
+0xdc	 uint32_t comms_sync2_err_cnt;          // count (R)
+0xe0	 uint32_t comms_headerxsum_err_cnt;     // count (R)
+0xe4	 uint32_t comms_overrun_err_cnt;        // count (R)
+0xe8	 uint32_t comms_payloadxsum_err_cnt;    // count (R)
+0xec	 uint16_t comms_err_flag;
+0xee	 uint16_t save_settings;                // code (W)
+0xf0	 uint32_t  custom_command;       //  (W)  Special Register
+0xf4	 uint32_t  FACTORY_SERVICE_DATA; //  (R)  Device specific service data
+0xf8	 uint16_t  CONFIG_DATA_SIZE;     //  (R)
+0xfa	 uint8_t   CONFIG_DATA;          //  (R)  Special Register
+0xfb	 uint8_t   FIRMWARE_VERSION;     //  (R)  Special Register
+0xfc	 uint8_t   NODE_ID;              //  (RW) Special Register
+0xfd	 uint8_t   GROUP_ID;             //  (RW) Special Register
+0xfe	 uint16_t  UTILITY;              //  (W)  Special Register
+Size:	 256
