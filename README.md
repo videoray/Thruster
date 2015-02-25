@@ -2,6 +2,8 @@
 
 Public technical resources for controlling the videoray m5 thruster.
 
+Current thruster firmware version: 0.9.3
+
 ##Files
 
 ***VR_CSR_Communication_Protocol.doc<br>***
