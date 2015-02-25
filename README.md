@@ -2,7 +2,7 @@
 
 Public technical resources for controlling the videoray m5 thruster.
 
-Current thruster firmware version: 0.9.X
+Valid for current thruster firmware version: 0.9.X
 
 ##Files
 
@@ -20,7 +20,7 @@ Header file defining the custom specific responses that the thruster supports
 
 
 ***thruster_CSR_map.txt<br>***
-Text file address map showign all addresses and datum sizes in the CSR
+Text file address map showing all addresses and datum sizes in the CSR
 
 ***thruster.py<br>***
 Python example of typical thruster usage
