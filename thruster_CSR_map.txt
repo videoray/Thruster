@@ -25,12 +25,10 @@ CSR:
  
 0x58	 RESERVED
  
-0x60	 uint8_t motor_control_flags;      // Bitfield     (RW)
-0x61	 uint8_t poles;              // count        (RW)
-0x62	 uint8_t pwm_deadband;       // ticks        (RW)
- 
-0x63	 RESERVED
- 
+0x60	 uint8_t control_flags;      // Bitfield     (RW)
+0x61	 uint8_t motor_control_flags;      // Bitfield     (RW)
+0x62	 uint8_t poles;              // count        (RW)
+0x63	 uint8_t pwm_deadband;       // ticks        (RW)
 0x64	 float commutation_threshold;         // 0 to 1       (RW)
 0x68	 uint32_t commutation_loss_timeout;   // ms  (RW)
 0x6c	 float startup_dutycycle;             // 0 to 1       (RW)

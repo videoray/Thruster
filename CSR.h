@@ -2,7 +2,7 @@
 #define MOTOR_CONTROLLER_CSR_H__
 
 #include <stdint.h>
-/** @file   motor_controller_csr.h
+/** @file   motor_controller/CSR.h
  *  @brief  CSR Struct and application specific command definitions for the bootloader
  *
  */
@@ -14,7 +14,8 @@ extern "C" {
 #define PROPULSION_COMMAND 0xaa
 
 
-/** Structure definition for the m5 Motor Controller CSR file.
+/** @struct CSR_Motor_Controller_tag 
+ * @brief Structure definition for the m5 Motor Controller CSR file.
  *
  * The standard CSR memory space is at most 256 bytes.  
  * The entire memory space is reserved by this structure.
@@ -22,7 +23,9 @@ extern "C" {
  * It may be necessary to hand tune member sizes to insure proper alignment and packing.
  */
  typedef struct CSR_Motor_Controller_tag {
-    /* Control Section, values sent at high update rates  */
+    /*@{*/
+    /** @name Control Section, values sent at high update rates  
+    */
     float rpm_target;           // rpm          (RW) NOT USED YET
     float pwr_target;           // -1 to 1      (RW)
     float rpm;                  // rpm          (R)
@@ -36,8 +39,11 @@ extern "C" {
     float rpm_D;                // 0 to 1       (R) NOT USED YET
 
     char reserved[32];
-
-    // application config parameters
+    /*@}*/
+    
+    /*@{*/
+    /** @name application config parameters
+    */
     uint16_t motor_ID;               // ordinal  (RW)
     char reserved1[2];
     uint8_t system_flags;
@@ -45,12 +51,16 @@ extern "C" {
     uint32_t fault_interlock;  // password (RW)
 
     char reserved3[8];
-
-    // motor control parameters
+ 
+    /*@}*/
+    
+    /*@{*/
+    /** @name motor control parameters
+    */
+    uint8_t control_flags;      // Bitfield     (RW) 
     uint8_t motor_control_flags;      // Bitfield     (RW)
     uint8_t poles;              // count        (RW)
     uint8_t pwm_deadband;       // ticks        (RW)
-    char reserved4[1];
     float commutation_threshold;         // 0 to 1       (RW)
     uint32_t commutation_loss_timeout;   // ms  (RW)
     float startup_dutycycle;             // 0 to 1       (RW)
@@ -68,8 +78,11 @@ extern "C" {
     float rpm_kD;               // -1 to 1      (RW) NOT USED YET
 
     char reserved5[4];
-
-    // fault control parameters
+    /*@}*/
+    
+    /*@{*/
+    /** @name fault control parameters
+    */
     uint32_t fault_control;              // flag     (RW)
     uint8_t undervoltage_trigger;        // volts    (RW)
     uint8_t overvoltage_trigger;         // volts    (RW)
@@ -84,7 +97,11 @@ extern "C" {
     uint32_t stall_err_cnt;              // count     (R)
 
     char reserved7[24];
+    /*@}*/
 
+    /*@{*/
+    /** @name comms parameters
+    */  
     uint32_t comms_sync1_err_cnt;          // count (R)
     uint32_t comms_sync2_err_cnt;          // count (R)
     uint32_t comms_headerxsum_err_cnt;     // count (R)
@@ -92,7 +109,10 @@ extern "C" {
     uint32_t comms_payloadxsum_err_cnt;    // count (R)
     uint16_t comms_err_flag;
     uint16_t save_settings;                // code (W)
-    /** START OF PROTOCOL STANDARD REGISTERS **/
+    /*@}*/
+    
+    /*@{*/
+    /** @name PROTOCOL STANDARD REGISTERS **/
     /* Address: 0xF0 */
     uint32_t  custom_command;       //  (W)  Special Register
     uint32_t  FACTORY_SERVICE_DATA; //  (R)  Device specific service data
